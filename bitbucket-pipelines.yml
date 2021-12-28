@@ -1,0 +1,110 @@
+image:
+  name: 210880489606.dkr.ecr.us-west-1.amazonaws.com/shared-ecr-bitbucket-pipeline
+  aws:
+    access-key: $SHARED_AWS_ACCESS_KEY_ID
+    secret-key: $SHARED_AWS_SECRET_ACCESS_KEY
+
+definitions:
+  steps:
+    - step: &barcelona
+        name: barcelona
+        services:
+          - docker
+        script:
+          - cd $BITBUCKET_CLONE_DIR/
+          - envsubst < server/.env.template > server/.env
+          - aws --profile $BARCELONA_AWS_IAM_USER ecr get-login-password --region $BARCELONA_AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $BARCELONA_AWS_ECR_REPOSITORY_URI
+          - docker build -t $BARCELONA_AWS_ECR_REPOSITORY_IMAGE .
+          - docker push $BARCELONA_AWS_ECR_REPOSITORY_IMAGE
+    - step: &cloud
+        name: cloud
+        services:
+          - docker
+        script:
+          - cd $BITBUCKET_CLONE_DIR/
+          - envsubst < server/.env.template > server/.env
+          - aws --profile $CLOUD_AWS_IAM_USER ecr get-login-password --region $CLOUD_AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $CLOUD_AWS_ECR_REPOSITORY_URI
+          - docker build -t $CLOUD_AWS_ECR_REPOSITORY_IMAGE . -f Dockerfile.cloud
+          - docker push $CLOUD_AWS_ECR_REPOSITORY_IMAGE
+    - step: &cloud-beta
+        name: cloud-beta
+        services:
+          - docker
+        script:
+          - cd $BITBUCKET_CLONE_DIR/
+          - envsubst < server/.env.template > server/.env
+          - aws --profile $CLOUD_BETA_AWS_IAM_USER ecr get-login-password --region $CLOUD_BETA_AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $CLOUD_BETA_AWS_ECR_REPOSITORY_URI
+          - docker build -t $CLOUD_BETA_AWS_ECR_REPOSITORY_IMAGE . -f Dockerfile.beta
+          - docker push $CLOUD_BETA_AWS_ECR_REPOSITORY_IMAGE
+    - step: &local
+        name: local
+        services:
+          - docker
+        script:
+          - cd $BITBUCKET_CLONE_DIR/
+          - envsubst < Dockerfile.local.template > Dockerfile.local
+          - envsubst < server/.env.template > server/.env
+          - aws --profile $LOCAL_AWS_IAM_USER ecr get-login-password --region $LOCAL_AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $LOCAL_AWS_ECR_REPOSITORY_URI
+          - docker build -t $LOCAL_AWS_ECR_REPOSITORY_IMAGE . -f Dockerfile.local
+          - docker push $LOCAL_AWS_ECR_REPOSITORY_IMAGE
+    - step: &podgorica
+        name: podgorica
+        services:
+          - docker
+        script:
+          - cd $BITBUCKET_CLONE_DIR/
+          - envsubst < server/.env.template > server/.env
+          - aws --profile $PODGORICA_AWS_IAM_USER ecr get-login-password --region $PODGORICA_AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $PODGORICA_AWS_ECR_REPOSITORY_URI
+          - docker build -t $PODGORICA_AWS_ECR_REPOSITORY_IMAGE . -f Dockerfile.podgorica
+          - docker push $PODGORICA_AWS_ECR_REPOSITORY_IMAGE
+    - step: &sandbox
+        name: sandbox
+        services:
+          - docker
+        script:
+          - cd $BITBUCKET_CLONE_DIR/
+          - envsubst < Dockerfile.local.template > Dockerfile.local
+          - envsubst < server/.env.template > server/.env
+          - aws --profile $SANDBOX_AWS_IAM_USER ecr get-login-password --region $SANDBOX_AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $SANDBOX_AWS_ECR_REPOSITORY_URI
+          - docker build -t $SANDBOX_AWS_ECR_REPOSITORY_IMAGE . -f Dockerfile.local
+          - docker push $SANDBOX_AWS_ECR_REPOSITORY_IMAGE
+    - step: &test
+        name: test
+        script:
+          - pip install -r test.requirements.txt
+          - envsubst < server/.env.template > server/.env
+          - AWS_ACCESS_KEY_ID=$AWS_IAM_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_IAM_SECRET_ACCESS_KEY TEST_DATABASE_URI=$TEST_DATABASE_URI NO_CORS=1 PYTHONPATH="$$PWD/server:$$PWD/tests:$$PYTHONPATH" python -m pytest -o log_cli=true --capture=no -c pytest.ini
+   
+    
+pipelines:
+  branches:
+    beta:
+      - step:
+          <<: *cloud-beta
+          deployment: cloud-beta
+    cloud:
+      - step:
+          <<: *cloud
+          deployment: cloud
+  pull-requests:
+    "**":
+      - step:
+          <<: *test
+          deployment: test
+  tags:
+    ecr-barcelona-*:
+      - step:
+          <<: *barcelona
+          deployment: Barcelona
+    ecr-local-*:
+      - step:
+          <<: *local
+          deployment: local
+    ecr-podgorica-*:
+      - step:
+          <<: *podgorica
+          deployment: podgorica
+    ecr-sandbox-*:
+      - step:
+          <<: *sandbox
+          deployment: sandbox

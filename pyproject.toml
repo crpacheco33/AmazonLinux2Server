@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "ipa"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.66.0"
+uvicorn = {extras = ["standard"], version = "^0.14.0"}
+twilio = "^6.61.0"
+cryptography = ">=3.4.0"
+python-jose = "^3.3.0"
+boto3 = "^1.17.109"
+watchtower = "^1.0.6"
+passlib = "^1.7.4"
+bcrypt = "^3.2.0"
+pydantic = {extras = ["email"], version = "^1.8.2"}
+requests = "^2.25.1"
+aws-requests-auth = "^0.4.3"
+requests-aws4auth = "^1.1.1"
+datetime-quarter = "^1.0.3"
+redis = "^3.5.3"
+elasticsearch = {git = "ssh://git@bitbucket.org/visibly-workspace/elasticsearch-py.git", rev = "task/aws"}
+elasticsearch-dsl = "^7.4.0"
+pymongo = "^3.12.0"
+aiofiles = "^0.7.0"
+amazon-api = {git = "ssh://git@bitbucket.org/visibly-workspace/amazon-api.git"}
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+Sphinx = "^4.1.1"
+sphinxcontrib-confluencebuilder = "^1.5.0"
+testcontainers = {extras = ["mongodb", "postgresql"], version = "^3.4.1"}
+requests-mock = "^1.9.3"
+pytest-mock = "^3.6.1"
+pytest-asyncio = "^0.15.1"
+httpx = "^0.18.2"
+aiofiles = "^0.7.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

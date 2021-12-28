@@ -1,0 +1,18 @@
+FROM 369963911650.dkr.ecr.us-west-1.amazonaws.com/ecr-python-base:latest
+
+ENV AWS_DEFAULT_REGION=$AMAZON_WEB_SERVICES_REGION
+ENV AWS_ACCESS_KEY_ID=$AWS_IAM_ACCESS_KEY_ID 
+ENV AWS_SECRET_ACCESS_KEY=$AWS_IAM_SECRET_ACCESS_KEY
+
+WORKDIR /var/www/server
+USER visibly
+
+COPY server.requirements.txt ./
+
+RUN pip install --upgrade pip
+RUN pip install -r server.requirements.txt
+
+COPY . ./
+ENV PYTHONPATH /var/www/server/server/
+ENV TEST_DATABASE_URI mongodb+srv://visibly:Bxr2PWLtacpPq3v.tzdJ@cluster0.n739w.mongodb.net
+ENTRYPOINT ["python", "-m", "server.main", "main.py"]

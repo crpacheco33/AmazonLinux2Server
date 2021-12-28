@@ -1,0 +1,93 @@
+aiofiles==0.7.0; python_version >= "3.6" and python_version < "4.0"
+alabaster==0.7.12; python_version >= "3.6"
+amazon-api @ git+ssh://git@bitbucket.org/visibly-workspace/amazon-api.git@master ; python_version >= "3.8" and python_version < "4.0"
+anyio==3.3.2; python_full_version >= "3.6.2" and python_version >= "3.6"
+asgiref==3.4.1; python_version >= "3.6"
+atomicwrites==1.4.0; python_version >= "3.6" and python_full_version < "3.0.0" and sys_platform == "win32" or sys_platform == "win32" and python_version >= "3.6" and python_full_version >= "3.4.0"
+attrs==21.2.0; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" and python_version >= "3.6"
+aws-requests-auth==0.4.3
+babel==2.9.1; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.4.0" and python_version >= "3.6"
+bcrypt==3.2.0; python_version >= "3.6"
+boto3==1.18.58; python_version >= "3.6"
+botocore==1.21.58; python_version >= "3.6"
+certifi==2021.10.8; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.6.0" and python_version >= "3.6" and python_version < "4"
+cffi==1.14.6; python_version >= "3.8" and python_version < "4.0"
+charset-normalizer==2.0.6; python_full_version >= "3.6.0" and python_version >= "3"
+click==8.0.2; python_version >= "3.6"
+colorama==0.4.4; python_version >= "3.6" and python_full_version < "3.0.0" and sys_platform == "win32" and platform_system == "Windows" or sys_platform == "win32" and python_full_version >= "3.5.0" and python_version >= "3.6" and platform_system == "Windows"
+cryptography==35.0.0; python_version >= "3.6"
+datetime-quarter==1.0.3
+deprecation==2.1.0; python_version >= "3.5"
+dnspython==2.1.0; python_full_version >= "3.6.1" and python_version >= "3.6"
+docker==5.0.3; python_version >= "3.6"
+docutils==0.17.1; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" and python_version >= "3.6"
+ecdsa==0.17.0; python_version >= "2.6" and python_full_version < "3.0.0" or python_full_version >= "3.3.0"
+elasticsearch @ git+ssh://git@bitbucket.org/visibly-workspace/elasticsearch-py.git@task/aws ; (python_version >= "2.7" and python_full_version < "3.0.0") or (python_full_version >= "3.4.0" and python_version < "4")
+elasticsearch-dsl==7.4.0; (python_version >= "2.7" and python_full_version < "3.0.0") or (python_full_version >= "3.4.0")
+email-validator==1.1.3; python_full_version >= "3.6.1" and python_version >= "3.6"
+fastapi==0.66.1; python_version >= "3.6"
+future==0.18.2; python_version >= "2.6" and python_full_version < "3.0.0" or python_full_version >= "3.3.0"
+greenlet==1.1.2; python_version >= "3" and python_full_version < "3.0.0" and (platform_machine == "aarch64" or platform_machine == "ppc64le" or platform_machine == "x86_64" or platform_machine == "amd64" or platform_machine == "AMD64" or platform_machine == "win32" or platform_machine == "WIN32") and (python_version >= "3.5" and python_full_version < "3.0.0" or python_version >= "3.5" and python_full_version >= "3.6.0") or python_version >= "3" and (platform_machine == "aarch64" or platform_machine == "ppc64le" or platform_machine == "x86_64" or platform_machine == "amd64" or platform_machine == "AMD64" or platform_machine == "win32" or platform_machine == "WIN32") and (python_version >= "3.5" and python_full_version < "3.0.0" or python_version >= "3.5" and python_full_version >= "3.6.0") and python_full_version >= "3.5.0"
+h11==0.12.0; python_version >= "3.6"
+httpcore==0.13.7; python_version >= "3.6"
+httptools==0.2.0
+httpx==0.18.2; python_version >= "3.6"
+idna==3.2
+imagesize==1.2.0; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.4.0" and python_version >= "3.6"
+iniconfig==1.1.1; python_version >= "3.6"
+jinja2==3.0.2; python_version >= "3.6"
+jmespath==0.10.0; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.3.0" and python_version >= "3.6"
+markupsafe==2.0.1; python_version >= "3.6"
+packaging==21.0; python_version >= "3.6"
+passlib==1.7.4
+pluggy==1.0.0; python_version >= "3.6"
+psycopg2-binary==2.9.1; python_version >= "3.6"
+py==1.10.0; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.4.0" and python_version >= "3.6"
+pyasn1==0.4.8; python_version >= "3.5" and python_version < "4"
+pycparser==2.20; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.4.0" and python_version >= "3.6"
+pydantic==1.8.2; python_full_version >= "3.6.1"
+pygments==2.10.0; python_version >= "3.6"
+pyjwt==1.7.1
+pymongo==3.12.0
+pyparsing==2.4.7; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.3.0" and python_version >= "3.6"
+pytest-asyncio==0.15.1; python_version >= "3.6"
+pytest-mock==3.6.1; python_version >= "3.6"
+pytest==6.2.5; python_version >= "3.6"
+python-dateutil==2.8.2; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.4.0" and python_version >= "3.6"
+python-dotenv==0.19.1; python_version >= "3.5"
+python-jose==3.3.0
+pytz==2021.3; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.4.0" and python_version >= "3.6"
+pywin32==227; sys_platform == "win32" and python_version >= "3.6"
+pyyaml==5.4.1; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.6.0"
+redis==3.5.3; (python_version >= "2.7" and python_full_version < "3.0.0") or (python_full_version >= "3.5.0")
+requests-aws4auth==1.1.1
+requests-mock==1.9.3
+requests==2.26.0; (python_version >= "2.7" and python_full_version < "3.0.0") or (python_full_version >= "3.6.0")
+rfc3986==1.5.0; python_version >= "3.6"
+rsa==4.7.2; python_version >= "3.5" and python_version < "4"
+s3transfer==0.5.0; python_version >= "3.6"
+six==1.16.0; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.4.0" and python_version >= "3.6"
+sniffio==1.2.0; python_full_version >= "3.6.2" and python_version >= "3.6"
+snowballstemmer==2.1.0; python_version >= "3.6"
+sphinx==4.2.0; python_version >= "3.6"
+sphinxcontrib-applehelp==1.0.2; python_version >= "3.6"
+sphinxcontrib-confluencebuilder==1.6.0
+sphinxcontrib-devhelp==1.0.2; python_version >= "3.6"
+sphinxcontrib-htmlhelp==2.0.0; python_version >= "3.6"
+sphinxcontrib-jsmath==1.0.1; python_version >= "3.6"
+sphinxcontrib-qthelp==1.0.3; python_version >= "3.6"
+sphinxcontrib-serializinghtml==1.1.5; python_version >= "3.6"
+sqlalchemy==1.4.25; python_version >= "3.5" and python_full_version < "3.0.0" or python_version >= "3.5" and python_full_version >= "3.6.0"
+starlette==0.14.2; python_version >= "3.8" and python_version < "4.0"
+testcontainers==3.4.2; python_version >= "3.5"
+toml==0.10.2; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.3.0" and python_version >= "3.6"
+twilio==6.63.2
+typing-extensions==3.10.0.2; python_full_version >= "3.6.1" and python_version >= "3.6"
+urllib3==1.26.7; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.6.0" and python_version < "4" and python_version >= "3.6"
+uvicorn==0.14.0
+uvloop==0.16.0; sys_platform != "win32" and sys_platform != "cygwin" and platform_python_implementation != "PyPy" and python_version >= "3.7"
+watchgod==0.7; python_version >= "3.5"
+watchtower==1.0.6; python_version >= "3.5"
+websocket-client==1.2.1; python_version >= "3.6"
+websockets==10.0; python_version >= "3.7"
+wrapt==1.13.1; python_version >= "3.5" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" and python_version >= "3.5"
