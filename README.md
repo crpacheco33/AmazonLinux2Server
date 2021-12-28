@@ -2,7 +2,7 @@
 
 ## Overview
 
-`server` is Visibly's server application that integrates with AWS to provide analytics, access control, eCommerce management, and payments.
+`server` is Carlos Ramirez server application that integrates with AWS to provide analytics, access control, eCommerce management, and payments.
 
 ## Documentation
 
