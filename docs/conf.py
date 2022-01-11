@@ -17,9 +17,9 @@ sys.path.insert(0, os.path.abspath('../../server'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Visibly API'
-copyright = '2021, Visibly, LLC'
-author = 'Visibly, LLC'
+project = 'AmazonADS API'
+copyright = '2022'
+author = 'Carlos Ramirez'
 
 
 # -- General configuration ---------------------------------------------------
@@ -60,11 +60,11 @@ html_static_path = ['_static']
 # Confluence
 confluence_publish = True
 confluence_space_name = 'VS'
-confluence_server_pass = os.getenv('CONFLUENCE_API_KEY')
+confluence_server_pass = os.getenv('')
 confluence_parent_page = 'Documentation'
 confluence_publish_dryrun = False
-confluence_server_url = 'https://visibly.atlassian.net/wiki/'
-confluence_server_user = 'declan.ryan@getvisibly.com'
+confluence_server_url = ''
+confluence_server_user = 'github.com/cramirezpacheco33'
 confluence_page_hierarchy = True
 
 # Napoleon
